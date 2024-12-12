@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="YEE'S日记">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icon-167.png">
+    <title>YEE'S日记</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="editMode">
+            <div class="journal-layout">
+                <div class="text-column">
+                    <header>
+                        <h1 class="title">YEE'S日记#001</h1>
+                        <div class="date">2024.12.02/周一</div>
+                    </header>
+
+                    <form id="journalForm">
+                        <div class="title-input">
+                            <input type="text" id="journalTitle" placeholder="输入标题..." class="title-field">
+                        </div>
+
+                        <div class="text-section">
+                            <textarea id="mainText" placeholder="写下今天的故事..." rows="6"></textarea>
+                        </div>
+
+                        <div class="text-sections">
+                            <div class="text-half">
+                                <textarea id="subText1" placeholder="今日运动" rows="4"></textarea>
+                            </div>
+                            <div class="text-half">
+                                <textarea id="subText2" placeholder="今日篇章（限15字）" rows="4" maxlength="15"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="photo-column">
+                    <div class="photo-upload" id="photoUpload">
+                        <input type="file" id="photoInput" accept="image/*" multiple style="display: none;">
+                        <div class="upload-placeholder">
+                            <div class="upload-icon">⬆</div>
+                            <div class="upload-text">点击或拖拽上传图片</div>
+                        </div>
+                        <div class="photo-grid" id="photoGrid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="previewBtn" class="preview-button">预览</button>
+        </div>
+
+        <div id="previewMode" style="display: none;">
+            <div class="preview-container">
+                <div class="preview-content">
+                    <div class="journal-layout">
+                        <div class="text-column">
+                            <header>
+                                <h1 id="previewTitle" class="title">YEE'S日记#001</h1>
+                                <div class="date">2024.12.02/周一</div>
+                            </header>
+
+                            <div class="preview-section">
+                                <div id="previewMainText"></div>
+                            </div>
+
+                            <div class="preview-sections">
+                                <div class="preview-half">
+                                    <div id="previewSubText1"></div>
+                                </div>
+                                <div class="preview-half">
+                                    <div id="previewSubText2"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="photo-column">
+                            <div class="preview-photos" id="previewPhotos"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-actions">
+                <button id="downloadBtn" class="download-button">下载</button>
+                <button id="editBtn" class="edit-button">✎</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
