@@ -7,7 +7,6 @@ const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
 app.use(express.json());
 
 // Configure multer for file uploads
@@ -29,6 +28,13 @@ const upload = multer({ storage });
 // Serve static files
 app.use(express.static('client'));
 app.use('/uploads', express.static('uploads'));
+
+// Enable CORS for all routes
+app.use(cors({
+  origin: ['https://yees-journal.vercel.app', 'http://localhost:3000'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));
 
 // Serve index.html for root route
 app.get('/', (req, res) => {
@@ -90,3 +96,6 @@ app.delete('/api/entries/:id', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+// Export the Express API
+module.exports = app;

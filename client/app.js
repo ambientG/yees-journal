@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const API_URL = 'http://localhost:3000/api';
+    const API_URL = '/api';
     const editMode = document.getElementById('editMode');
     const previewMode = document.getElementById('previewMode');
     const previewBtn = document.getElementById('previewBtn');
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
 
-            const response = await fetch(`${API_URL}/journals`, {
+            const response = await fetch('/journals', {
                 method: 'POST',
                 body: formData
             });
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function loadEntries() {
         try {
-            const response = await fetch(`${API_URL}/journals`);
+            const response = await fetch('/journals');
             const journals = await response.json();
             
             const entriesList = document.getElementById('entriesList');
